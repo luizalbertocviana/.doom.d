@@ -24,10 +24,24 @@
 (key-chord-define evil-insert-state-map "[[" "{")
 
 
+;; some minor additions to leader key keybindings
 (map! :leader
+      :desc "Switch to last buffer"
+      "TAB" (lambda () (interactive) (switch-to-buffer (other-buffer)))
       :desc "Open current directory"
-      "f o" (lambda () (interactive) (dired "./")))
+      "f o" (lambda () (interactive) (dired "./"))
+      "P" 'list-processes
+      "a" 'counsel-linux-app
+      "e" 'eshell)
 
+;; easy cursor moving in insert mode
+(map! :e
+      "C-h" 'backward-char
+      "C-j" 'next-line
+      "C-k" 'previous-line
+      "C-l" 'forward-char)
+
+;; text menu
 (map! :leader
       (:prefix-map ("T" . "Text")
        "A" 'align-regexp
@@ -53,3 +67,35 @@
         (:prefix ("r" . "rows")
          "d" 'table-delete-row
          "i" 'table-insert-row))))
+
+;; dired keybindings
+(map! :mode dired-mode :n
+      "M" 'dired-unmark)
+(map! :mode dired-mode :n
+      "h" (lambda () (interactive) (find-alternate-file "..")))
+(map! :mode dired-mode :n
+      "l" 'dired-find-alternate-file)
+(map! :mode dired-mode :n
+      "o" 'browse-url-of-dired-file)
+(map! :mode dired-mode :n
+      "y" 'dired-copy-filename-as-kill)
+(map! :localleader :mode dired-mode
+      "D" 'dired-diff
+      "S" 'dired-do-symlink
+      "T" 'dired-toggle-marks
+      "U" 'dired-upcase
+      "Z" 'dired-do-compress
+      "c" 'wdired-change-to-wdired-mode
+      "d" 'dired-do-delete
+      "g" 'dired-do-chgrp
+      "i" (lambda () (interactive) (image-dired "./"))
+      "l" 'dired-downcase
+      "m" 'dired-do-chmod
+      "n" 'dired-create-directory
+      "o" 'dired-do-chown
+      "p" 'dired-do-print
+      "r" 'dired-do-rename
+      "s" 'dired-do-isearch-regexp
+      "t" 'dired-do-async-shell-command
+      "y" 'dired-do-copy
+      "z" 'dired-do-compress-to)
