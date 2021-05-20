@@ -69,17 +69,17 @@
          "i" 'table-insert-row))))
 
 ;; dired keybindings
-(map! :mode dired-mode :n
+(map!  :after dired :mode dired-mode :n
       "M" 'dired-unmark)
-(map! :mode dired-mode :n
+(map!  :after dired :mode dired-mode :n
       "h" (lambda () (interactive) (find-alternate-file "..")))
-(map! :mode dired-mode :n
+(map!  :after dired :mode dired-mode :n
       "l" 'dired-find-alternate-file)
-(map! :mode dired-mode :n
+(map! :after dired :mode dired-mode :n
       "o" 'browse-url-of-dired-file)
-(map! :mode dired-mode :n
+(map!  :after dired :mode dired-mode :n
       "y" 'dired-copy-filename-as-kill)
-(map! :localleader :mode dired-mode
+(map!  :after dired :localleader :mode dired-mode :n
       "D" 'dired-diff
       "S" 'dired-do-symlink
       "T" 'dired-toggle-marks
