@@ -49,4 +49,7 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
+;; disabled packages
+(package! evil-snipe :disable t)
+
 (package! key-chord)
