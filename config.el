@@ -53,6 +53,8 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+(load! "calendar-changes")
+(load! "company-changes")
 (load! "dired-changes")
 (load! "evil-changes")
 (load! "leader-keybindings")

@@ -24,11 +24,13 @@
 (key-chord-define evil-insert-state-map "[[" "{")
 
 ;; easy cursor moving in insert mode
-(map! :map evil-insert-state-map
-      "C-h" 'backward-char
-      "C-j" 'next-line
-      "C-k" 'previous-line
-      "C-l" 'forward-char)
+(map! :i "C-h" 'backward-char
+      :i "C-j" 'next-line
+      :i "C-k" 'previous-line
+      :i "C-l" 'forward-char)
 
-(map! :map (evil-normal-state-map)
-      "s" 'evil-ex-search-forward)
+(map! :n "s" 'evil-ex-search-forward
+      :n "H" "^"
+      :n "J" "}"
+      :n "K" "{"
+      :n "L" "$")

@@ -1,17 +1,13 @@
 ;;; ../github/.doom.d/dired-changes.el -*- lexical-binding: t; -*-
 
 ;; dired keybindings
-(map!  :after dired :mode dired-mode :n
-      "M" 'dired-unmark)
-(map!  :after dired :mode dired-mode :n
-      "h" (lambda () (interactive) (find-alternate-file "..")))
-(map!  :after dired :mode dired-mode :n
-      "l" 'dired-find-alternate-file)
-(map! :after dired :mode dired-mode :n
-      "o" 'browse-url-of-dired-file)
-(map!  :after dired :mode dired-mode :n
-      "y" 'dired-copy-filename-as-kill)
-(map!  :after dired :localleader :mode dired-mode :n
+(map! :after dired :mode dired-mode
+      :n "M" 'dired-unmark
+      :n "h" (lambda () (interactive) (find-alternate-file ".."))
+      :n "l" 'dired-find-alternate-file
+      :n "o" 'browse-url-of-dired-file
+      :n "y" 'dired-copy-filename-as-kill)
+(map! :after dired :localleader :mode dired-mode
       "D" 'dired-diff
       "S" 'dired-do-symlink
       "T" 'dired-toggle-marks
@@ -31,3 +27,14 @@
       "t" 'dired-do-async-shell-command
       "y" 'dired-do-copy
       "z" 'dired-do-compress-to)
+(map! :after dired :mode archive-mode
+      :n "j" 'archive-next-line
+      :n "k" 'archive-previous-line
+      :n "l" 'archive-extract
+      :n "m" 'archive-flag-deleted)
+(map! :after dired :localleader :mode archive-mode
+      "g" 'archive-chgrp-entry
+      "m" 'archive-chmod-entry
+      "o" 'archive-chown-entry
+      "d" 'archive-expunge
+      "r" 'archive-rename-entry)
