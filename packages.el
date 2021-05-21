@@ -57,3 +57,5 @@
 (package! company-quickhelp)
 
 (package! ivy-posframe)
+
+(package! lsp-haskell)
