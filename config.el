@@ -60,3 +60,4 @@
 (load! "evil-changes")
 (load! "ivy-changes")
 (load! "leader-keybindings")
+(load! "lisp-changes")
