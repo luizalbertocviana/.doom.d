@@ -56,5 +56,7 @@
 (load! "calendar-changes")
 (load! "company-changes")
 (load! "dired-changes")
+(load! "eshell-changes")
 (load! "evil-changes")
+(load! "ivy-changes")
 (load! "leader-keybindings")

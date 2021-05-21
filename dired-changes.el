@@ -1,5 +1,8 @@
 ;;; ../github/.doom.d/dired-changes.el -*- lexical-binding: t; -*-
 
+(after! dired-x
+  (setq dired-omit-files (concat dired-omit-files "\\|^\\..+$")))
+
 ;; dired keybindings
 (map! :after dired :mode dired-mode
       :n "M" 'dired-unmark

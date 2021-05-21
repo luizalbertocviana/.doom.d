@@ -53,3 +53,7 @@
 (package! evil-snipe :disable t)
 
 (package! key-chord)
+
+(package! company-quickhelp)
+
+(package! ivy-posframe)
